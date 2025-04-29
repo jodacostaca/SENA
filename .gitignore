@@ -1,0 +1,32 @@
+# Archivos sensibles
+*.env
+*.key
+*.pem
+*.pfx
+*.crt
+*.cert
+*.jks
+*.keystore
+secrets.json
+config.json
+credentials.json
+
+# Archivos de configuración específicos del entorno
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de bases de datos
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+
+# Archivos de logs
+*.log
+
+# Archivos de respaldo
+*.bak
+*.tmp
+*.swp
