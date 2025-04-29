@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Life Savers', sans-serif;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #f78da7; 
+    color: #f7f7f7; 
+    flex-wrap: nowrap; 
+    overflow: hidden;  
+    white-space: nowrap; 
+  }
+
+  .logo img {
+    width: 100px; 
+    height: auto; 
+  }
+.dashboard-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 20%;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .menu-item {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .purple { background-color: #c39bd3; }
+  .yellow { background-color: #f7c843; }
+  .red { background-color: #f78da7; }
+  .blue { background-color: #a2d8f7; }
+  .gray { background-color: #d3d3d3; color: #333333; }
+  
+  .main-content {
+    width: 80%;
+    padding: 1.5rem;
+  }
+
+  
+  .schedule-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .calendar, .time-slots, .session-summary {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 30%;
+  }
+  
+  .calendar h3, .session-summary h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .time-slots table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .time-slots th, .time-slots td {
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .notifications {
+    border: 1px solid #a2d8f7;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  .notifications h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .notification-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .notification-item:last-child {
+    border-bottom: none;
+  }
+  
+  .pay-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-link {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .button-link:hover {
+    background-color: #555555;
+  }
+  
+  
