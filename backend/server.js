@@ -35,6 +35,10 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/views/auth/login.html'));
 });
 
+app.get('/student/panel', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/views/student/estudiante_panel.html'));
+});
+
 app.post('/registro', async (req, res) => {
   try {
     const { parentName, email, password, confirmPassword, studentName } = req.body;
@@ -56,10 +60,44 @@ app.post('/registro', async (req, res) => {
       'INSERT INTO families (parent_name, email, password_hash, student_name) VALUES (?, ?, ?, ?)',
       [parentName, email, hashedPassword, studentName]
     );
-
     res.send('Registro exitoso!');
   } catch (error) {
     console.error(error);
+    res.status(500).send('Error en el servidor');
+  }
+});
+
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Validación básica
+    if (!email || !password) {
+      return res.status(400).send('Email y contraseña son obligatorios');
+    }
+
+    // Consultar en MySQL
+    const [rows] = await pool.query('SELECT * FROM families WHERE email = ?', [email]);
+    if (rows.length === 0) {
+      return res.status(401).send('Email o contraseña incorrectos');
+    }
+
+    const user = rows[0];
+    
+    // Comparar contraseñas
+    const match = await bcrypt.compare(password, user.password_hash);
+    if (!match) {
+      return res.status(401).send('Email o contraseña incorrectos');
+    }
+    
+    const nombre = encodeURIComponent(user.parent_name);  
+    return res.redirect(`/student/panel?name=${nombre}`);
+
+
+
+
+} catch (err) {
+    console.error(err);
     res.status(500).send('Error en el servidor');
   }
 });
