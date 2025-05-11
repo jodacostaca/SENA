@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2/promise');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const path = require('path'); // Importar módulo path
 const app = express();
@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 3000;
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../frontend/public"))); // CSS/JS/Imágenes
-app.use(express.static(path.join(__dirname, "../frontend/views"))); // HTML
+app.use(express.static(path.join(__dirname, "frontend/public"))); // CSS/JS/Imágenes
+app.use(express.static(path.join(__dirname, "frontend/views"))); // HTML
 
 // Conexión a MySQL
 const pool = mysql.createPool({
@@ -25,19 +25,19 @@ const pool = mysql.createPool({
 
 // Rutas
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/index.html'));
+  res.sendFile(path.join(__dirname, 'frontend/views/index.html'));
 });
 
 app.get('/registro', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/auth/registro.html'));
+  res.sendFile(path.join(__dirname, 'frontend/views/auth/registro.html'));
 });
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/auth/login.html'));
+  res.sendFile(path.join(__dirname, 'frontend/views/auth/login.html'));
 });
 
 app.get('/student/panel', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/views/student/estudiante_panel.html'));
+  res.sendFile(path.join(__dirname, 'frontend/views/student/estudiante_panel.html'));
 });
 
 app.post('/registro', async (req, res) => {
