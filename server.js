@@ -6,13 +6,14 @@ const bodyParser = require('body-parser');
 const path = require('path'); // Importar módulo path
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors');
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend/public"))); // CSS/JS/Imágenes
 app.use(express.static(path.join(__dirname, "frontend/views"))); // HTML
-
+app.use(cors({origin: process.env.VERCEL_URL || '*'  }));
 // Conexión a MySQL
 const pool = mysql.createPool({
   host: process.env.DB_HOST,

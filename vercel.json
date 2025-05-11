@@ -2,7 +2,8 @@
   "rewrites": [
     { "source": "/registro",       "destination": "/frontend/views/auth/registro.html"      },
     { "source": "/login",          "destination": "/frontend/views/auth/login.html"         },
-    { "source": "/student/panel",  "destination": "/frontend/views/student/estudiante_panel.html" }
+    { "source": "/student/panel",  "destination": "/frontend/views/student/estudiante_panel.html" },
+    { "source": "/api/:path*",     "destination": "https://mellow-mindfulness.up.railway.app/:path*" }
   ],
   "cleanUrls": true
 }
