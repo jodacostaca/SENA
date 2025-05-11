@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const path = require('path'); // Importar módulo path
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -103,6 +104,6 @@ app.post('/login', async (req, res) => {
 });
 
 // Iniciar servidor
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
   console.log(`Servidor en http://localhost:${process.env.PORT}`);
 });
