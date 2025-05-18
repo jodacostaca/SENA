@@ -7,9 +7,6 @@ const path = require('path'); // Importar módulo path
 const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
-const express = require("express");
-const cors    = require("cors");
-const path    = require("path");
 const { join } = path;
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
