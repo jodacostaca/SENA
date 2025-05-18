@@ -29,16 +29,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/views/index.html'));
 });
 
-app.get('/registro', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/views/auth/registro.html'));
+app.get("/registro", (req, res) => {
+  res.sendFile(join(__dirname, "frontend/views/auth/registro.html"));
 });
-
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/views/auth/login.html'));
+app.get("/login", (req, res) => {
+  res.sendFile(join(__dirname, "frontend/views/auth/login.html"));
 });
-
-app.get('/student/panel', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/views/student/estudiante_panel.html'));
+app.get("/student/panel", (req, res) => {
+  res.sendFile(join(__dirname, "frontend/views/student/estudiante_panel.html"));
 });
 
 app.post('/registro', async (req, res) => {
