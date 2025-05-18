@@ -2,8 +2,10 @@
   "name": "sena",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "start": "node server.js"
+"scripts": {
+    "build": "echo \"No hay paso de build\"",
+    "start": "node backend/server.js",
+    "dev": "vercel dev"
   },
   "repository": {
     "type": "git",

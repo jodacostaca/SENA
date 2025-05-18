@@ -30,3 +30,4 @@ credentials.json
 *.bak
 *.tmp
 *.swp
+.vercel
