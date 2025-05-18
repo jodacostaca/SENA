@@ -1,9 +1,14 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/registro",      "destination": "/frontend/views/auth/registro.html" },
-    { "source": "/login",         "destination": "/frontend/views/auth/login.html"    },
-    { "source": "/student/panel", "destination": "/frontend/views/student/estudiante_panel.html" },
-    { "source": "/api/:path*",    "destination": "https://mellow-mindfulness.up.railway.app/:path*" }
+  "version": 2,
+  "builds": [
+    { "src": "frontend/public/**/*",    "use": "@vercel/static" },
+    { "src": "frontend/views/**/*.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/",              "dest": "frontend/views/index.html" },
+    { "src": "/login",         "dest": "frontend/views/auth/login.html" },
+    { "src": "/registro",      "dest": "frontend/views/auth/registro.html" },
+    { "src": "/student/panel", "dest": "frontend/views/student/estudiante_panel.html" },
+    { "src": "/api/(.*)",      "dest": "https://mellow-mindfulness.up.railway.app/$1" }
   ]
 }
