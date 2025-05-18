@@ -7,13 +7,19 @@ const path = require('path'); // Importar módulo path
 const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
-
+const express = require("express");
+const cors    = require("cors");
+const path    = require("path");
+const { join } = path;
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend/public"))); // CSS/JS/Imágenes
 app.use(express.static(path.join(__dirname, "frontend/views"))); // HTML
 app.use(cors({origin: process.env.VERCEL_URL || '*'  }));
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "frontend/public")));
 // Conexión a MySQL
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
