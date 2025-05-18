@@ -18,14 +18,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend/public")));
 // Conexión a MySQL
-const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  waitForConnections: true,
-  connectionLimit: 10
-});
+require("dotenv").config();
+const mysql = require("mysql2/promise");
+const pool = mysql.createPool(process.env.MYSQL_URL);
+
 
 // Rutas
 app.get('/', (req, res) => {
