@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend/public")));
 // Conexión a MySQL
 require("dotenv").config();
-const mysql = require("mysql2/promise");
 const pool = mysql.createPool(process.env.MYSQL_URL);
 
 
