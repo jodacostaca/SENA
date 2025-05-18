@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
 "scripts": {
-    "build": "echo \"No hay paso de build\"",
-    "start": "node backend/server.js",
-    "dev": "vercel dev"
+  "build": "echo \"No hay paso de build\"",
+  "start": "node backend/server.js",
+  "dev":   "node backend/server.js"
   },
   "repository": {
     "type": "git",
