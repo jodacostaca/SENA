@@ -17,10 +17,26 @@ app.use(cors({origin: process.env.VERCEL_URL || '*'  }));
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend/public")));
-// Conexión a MySQL
-require("dotenv").config();
-const pool = mysql.createPool(process.env.MYSQL_URL);
 
+console.log("DB config:", {
+  host: process.env.MYSQLHOST,
+  port: process.env.MYSQLPORT,
+  user: process.env.MYSQLUSER,
+  database: process.env.MYSQLDATABASE
+});
+
+// Conexión a MySQL
+
+const pool = mysql.createPool({
+  host:     process.env.MYSQLHOST,
+  port:     parseInt(process.env.MYSQLPORT, 10),
+  user:     process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
 
 // Rutas
 app.get('/', (req, res) => {
