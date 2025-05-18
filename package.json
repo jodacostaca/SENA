@@ -2,10 +2,10 @@
   "name": "sena",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
-  "build": "echo \"No hay paso de build\"",
-  "start": "node backend/server.js",
-  "dev":   "node backend/server.js"
+ "scripts": {
+    "build": "echo \"No hay paso de build\"",
+    "start": "node server.js",
+    "dev":   "node server.js"
   },
   "repository": {
     "type": "git",
